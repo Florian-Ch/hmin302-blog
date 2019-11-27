@@ -1,13 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <ul>
-    {% for p in posts %}
-        <li class="posts_list_item"> 
-            <h2 class="posts_list_item_title"> {{ p.title }} </h2>
-            <p class="posts_list_item_creation"> Posté par {{ p.author }} le {{ p.date|date("m/d/Y")  }}</p>
-            <p class="posts_list_item_content"> {{ p.content }} </p>    
-        </li>
-    {% endfor %}
-    </ul>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+            <h1>Blog</h1>
+            <span class="subheading">Florian Chevalier & Yannick Bezes</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        {% for p in posts %}
+          <div class="post-preview">
+            <a href="/post/{{ p.id }}">
+                <h2 class="post-title">{{ p.title | capitalize }}</h2>
+                <h3 class="post-subtitle">{{ p.content }}</h3>
+            </a>
+            <p class="post-meta">Posté par {{ p.author | capitalize }} le {{ p.date|date("m/d/Y") }}</p>
+          </div>
+          {%if not loop.last %}
+            <hr>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
 {% endblock %}
