@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/img/home-bg2.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+            <h1>Blog</h1>
+            <span class="subheading">Florian Chevalier & Yannick Bezes</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+      <div class="row button_post_creation">
+        <a href="{{ path('post_new') }}">
+          <button class="btn btn-primary">
+            Nouveau post
+          </button>
+        </a>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in posts %}
+          <div class="post-preview">
+            <form method="post" action="{{ path('post_edit', {'id': post.id}) }}" class="form_edit">
+                <button class="post_edit_btn"><img src="{{ asset('/img/Edit.png') }}" class="image_delete"/></button>
+            </form>
+            {{ include('post/_delete_form.html.twig') }}
+            <a href="/post/{{ post.id }}">
+                <h2 class="post-title post_title">{{ post.title | capitalize }}</h2>
+                <h3 class="post-subtitle">Posté par {{ post.author | capitalize }} le {{ post.date|date("m/d/Y") }}</h3>
+            </a>
+            <p class="post-meta">{{ post.content }}</p>
+          </div>
+          {%if not loop.last %}
+            <hr>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock %}

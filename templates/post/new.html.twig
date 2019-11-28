@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un post{% endblock %}
+
+{% block body %}
+    <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+                <h1>{{' Création d'}}'{{'un post '}}</h1>
+            </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    {{ include('post/_form.html.twig') }}
+
+    <a href="{{ path('post_admin') }}">back to list</a>
+{% endblock %}

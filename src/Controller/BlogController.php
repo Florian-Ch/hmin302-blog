@@ -28,9 +28,9 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/post/{idPost}", name="post_details", requirements={"idPost"="\d+" })
+     * @Route("/posts/{idPost}", name="post_details", requirements={"idPost"="\d+" })
      */
-    public function edit(int $idPost) {
+    public function postDetails(int $idPost) {
         $Post = $this->getDoctrine()
             ->getRepository('App:Post')
             ->find($idPost);
@@ -42,6 +42,43 @@ class BlogController extends AbstractController
 
         return $this->render('blog/post_details.html.twig', [
             'id_post' => $Post,
+        ]);
+    }
+
+    /**
+     * @Route("/createPost", name="post_creation")
+     */
+    public function createPost() {
+        $Post = $this->getDoctrine()
+            ->getRepository('App:Post')
+            ->find($idPost);
+
+        if(!$Post)
+        {
+            throw $this->createNotFoundException('Aucun post trouvé avec l\'id '.$idPost);
+        }
+
+        return $this->render('blog/create_post.html.twig', [
+            'id_post' => $Post,
+        ]);
+    }
+
+    /**
+     * @Route("/post/admin", name="post_admin")
+     */
+    public function postAdmin() {
+        $em = $this->getDoctrine()->getEntityManager();
+        $query = $em->createQuery('select p from App:Post p order by p.Date');
+
+        $Posts = $query->getResult();
+
+        if(!$Posts)
+        {
+            throw $this->createNotFoundException('Aucun post trouvé !');
+        }
+
+        return $this->render('post/admin.html.twig', [
+            'posts' => $Posts,
         ]);
     }
 }
