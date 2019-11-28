@@ -23,7 +23,7 @@ class BlogController extends AbstractController
         }
 
         return $this->render('blog/posts.html.twig', [
-            'posts' => $Posts,
+            'posts' => $Posts
         ]);
     }
 

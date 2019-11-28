@@ -10,3 +10,6 @@
 
  - postgres :
  `CREATE TABLE post(id INTEGER PRIMARY KEY, title TEXT, content TEXT, date DATE, author TEXT, picture TEXT)"`
+
+ # ADMIN
+ 
