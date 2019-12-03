@@ -33,3 +33,29 @@
     justify-content: center;
     margin-bottom: 20px;
 }
+
+.post_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post_form .form-group{
+    width: 70%;
+}
+
+.form_da{
+    display: inline !important;
+    width: fit-content !important;
+}
+
+.label_da{
+    margin-left: 25%;
+}
+
+.return_admin_list_div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}

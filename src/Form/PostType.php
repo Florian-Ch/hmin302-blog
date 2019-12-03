@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class PostType extends AbstractType
 {
@@ -15,7 +16,7 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('Content', TextareaType::class)
-            ->add('Date')
+            ->add('Date', DateType::class, ['widget' => 'single_text'])
             ->add('Author')
             ->add('Picture')
         ;
