@@ -28,7 +28,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/posts/{idPost}", name="post_details", requirements={"idPost"="\d+" })
+     * @Route("/post/{idPost}", name="post_details", requirements={"idPost"="\d+" })
      */
     public function postDetails(int $idPost) {
         $Post = $this->getDoctrine()
@@ -64,7 +64,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/post/admin", name="post_admin")
+     * @Route("/admin/posts", name="post_admin")
      */
     public function postAdmin() {
         $em = $this->getDoctrine()->getEntityManager();

@@ -11,20 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/post")
+ * @Route("/admin")
  */
 class PostController extends AbstractController
 {
-    /**
-     * @Route("/", name="post_index", methods={"GET"})
-     */
-    public function index(PostRepository $postRepository): Response
-    {
-        return $this->render('post/index.html.twig', [
-            'posts' => $postRepository->findAll(),
-        ]);
-    }
-
     /**
      * @Route("/new", name="post_new", methods={"GET","POST"})
      */
