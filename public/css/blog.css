@@ -88,15 +88,22 @@ img::-moz-selection {
 }
 
 #mainNav {
-  position: absolute;
-  border-bottom: 1px solid #e9ecef;
-  background-color: white;
+  position: inherit;
+  background: #202020;
+  color: #fff;
+  /* position: absolute; */
+  /* border-bottom: 1px solid #e9ecef; */
+  /* background-color: white; */
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #mainNav .navbar-brand {
   font-weight: 800;
-  color: #343a40;
+  color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
 }
 
 #mainNav .navbar-toggler {
@@ -104,7 +111,7 @@ img::-moz-selection {
   font-weight: 800;
   padding: 13px;
   text-transform: uppercase;
-  color: #343a40;
+  color: #fff;
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
@@ -115,10 +122,6 @@ img::-moz-selection {
 }
 
 @media only screen and (min-width: 992px) {
-  #mainNav {
-    border-bottom: 1px solid transparent;
-    background: transparent;
-  }
   #mainNav .navbar-brand {
     padding: 10px 20px;
     color: #fff;
@@ -409,4 +412,19 @@ footer .copyright {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
+}
+
+
+/* ------------ Form ------------ */
+.wrapper {
+    margin: 40px;
+}
+.form-signin {
+    font-family: Lato, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+}
+
+
+.wrapper .form-signin .form-signin-heading {
+    text-transform: uppercase;
+    text-align: center;
 }
